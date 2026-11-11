@@ -1,0 +1,18 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": ["src"]
+    },
+    "timeout": 30,
+    "logs": {
+        "text": "var/mutation/infection.log",
+        "json": "var/mutation/infection-log.json"
+    },
+    "mutators": {
+        "@default": true
+    },
+    "minMsi": 100,
+    "minCoveredMsi": 100,
+    "testFramework": "phpunit",
+    "testFrameworkExtraArgs": "--no-logging"
+}

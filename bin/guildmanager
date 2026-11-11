@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+if (PHP_SAPI !== 'cli' || PHP_INT_SIZE !== 8) {
+    fwrite(STDERR, "Use 64-bit PHP CLI.\n");
+    exit(1);
+}
+if (!is_file(__DIR__ . '/../vendor/autoload.php')) {
+    fwrite(STDERR, "Run composer install first.\n");
+    exit(1);
+}
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Command\RegisterCommandsCommand;
+use App\Command\RunBotCommand;
+use Psr\Log\LogLevel;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Logger\ConsoleLogger;
+use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Output\OutputInterface;
+
+$verbosityLevelMap = [
+    LogLevel::INFO => OutputInterface::VERBOSITY_NORMAL,
+];
+
+$output = new ConsoleOutput();
+$logger = new ConsoleLogger($output, $verbosityLevelMap);
+$application = new Application('guildManager', '1.0.0');
+$application->addCommands([
+    new RunBotCommand($logger),
+    new RegisterCommandsCommand(),
+]);
+$application->setDefaultCommand('run');
+$application->run(
+    output: $output,
+);

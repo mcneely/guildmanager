@@ -1,0 +1,9 @@
+/vendor/
+/data/
+.env
+*.log
+research/
+.idea/
+var/
+.php-cs-fixer.php
+phpunit.xml

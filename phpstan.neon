@@ -1,0 +1,15 @@
+includes:
+    - vendor/phpat/phpat/extension.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - bin
+
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: true
+
+    parallel:
+        maximumNumberOfProcesses: 4
+        processTimeout: 300.0

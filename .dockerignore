@@ -1,0 +1,10 @@
+.env
+data
+vendor
+.git
+.idea
+*.log
+research
+Dockerfile
+docker-compose.yml
+docker

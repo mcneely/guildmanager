@@ -1,0 +1,70 @@
+[
+  {
+    "name": "cooldown",
+    "description": "Set the normal voice channel for a five-minute speaking wait",
+    "type": 1,
+    "default_member_permissions": "32",
+    "options": [
+      {
+        "name": "channel",
+        "description": "The normal voice channel to configure",
+        "type": 7,
+        "required": true,
+        "channel_types": [
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "name": "mywait",
+    "description": "Privately check your own current speaking wait",
+    "type": 1
+  },
+  {
+    "name": "waitpanel",
+    "description": "Post a fresh Check my wait button in the configured voice channel",
+    "type": 1,
+    "default_member_permissions": "32"
+  },
+  {
+    "name": "waitdisable",
+    "description": "Disable new waits without discarding existing mute records",
+    "type": 1,
+    "default_member_permissions": "32"
+  },
+  {
+    "name": "waitreview",
+    "description": "Privately list active waits and records needing moderator review",
+    "type": 1,
+    "default_member_permissions": "32"
+  },
+  {
+    "name": "waithold",
+    "description": "Pause automatic release before a separate moderation action",
+    "type": 1,
+    "default_member_permissions": "32",
+    "options": [
+      {
+        "name": "member",
+        "description": "The server member to review",
+        "type": 6,
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "waitclear",
+    "description": "Clear a reviewed wait record after confirming the member is unmuted",
+    "type": 1,
+    "default_member_permissions": "32",
+    "options": [
+      {
+        "name": "member",
+        "description": "The server member to review",
+        "type": 6,
+        "required": true
+      }
+    ]
+  }
+]
